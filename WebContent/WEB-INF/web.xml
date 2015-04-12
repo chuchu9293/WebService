@@ -20,8 +20,7 @@
 
 	<servlet-mapping>
 		<servlet-name>jerseyws</servlet-name>
-		<!-- 符合路径 http://host/AppName/rest/* 的请求会交给Jersey当做WebService处理 -->
-		<!-- <url-pattern>/webService/*</url-pattern> -->
+		<!-- 如果项目名为ABC,那么www.abc.com/ABC/*的请求都会被jersey框架处理-->
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 </web-app>
