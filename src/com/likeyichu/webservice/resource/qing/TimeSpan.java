@@ -1,13 +1,14 @@
-package com.likeyichu.webservice.qing;
+package com.likeyichu.webservice.resource.qing;
 
 import java.util.Calendar;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.server.JSONP;
-@Path("qing/timeSpan")
+@Path("qing")
 public class TimeSpan {
 	private static TimeSpan timespan=new TimeSpan();
 	private int days(){
@@ -18,10 +19,19 @@ public class TimeSpan {
 		int days = timeSpanBySeconds / (3600 * 24);
 		return days;
 	}
+	@Path("timeSpanJsonp")
 	@GET
 	@JSONP(queryParam="callback")
 	@Produces("application/x-javascript")
-	public int wsDays(){
+	public int wsDays1(){
 		return timespan.days();
 	}
+	
+	@Path("timeSpan")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public int wsDays2(){
+		return timespan.days();
+	}
+	
 }

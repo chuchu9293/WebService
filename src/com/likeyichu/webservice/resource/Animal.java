@@ -1,4 +1,4 @@
-package com.likeyichu.webservice;
+package com.likeyichu.webservice.resource;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
