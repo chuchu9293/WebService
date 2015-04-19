@@ -1,6 +1,8 @@
 package com.likeyichu.webservice.resource;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -16,6 +18,17 @@ public class Student {
 	private String name = "xiaoMing";
 	private String age = "13";
 	private Book book = new Book();
+	
+	
+	@Path("post")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)  //因为这行，wsStudent3()的形参remoteStudent会被jersey注入
+	@Produces(MediaType.APPLICATION_JSON)
+	public Student wsStudent3(Student remoteStudent) {
+		Student student= new Student();
+		student.setName(student.getName()+remoteStudent.getName());
+		return student;
+	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

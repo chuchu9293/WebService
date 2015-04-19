@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
-	<display-name>Archetype Created Web Application</display-name>
+	<display-name>yichu's WebService</display-name>
 	<filter>
 		<description>ajax请求webService时允许跨域</description>
 		<filter-name>WebServiceFilter</filter-name>
