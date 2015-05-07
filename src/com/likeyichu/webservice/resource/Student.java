@@ -22,7 +22,8 @@ public class Student {
 	
 	@Path("post")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)  //因为这行，wsStudent3()的形参remoteStudent会被jersey注入
+	@Consumes(MediaType.APPLICATION_JSON)  //因为这行，wsStudent3()的形参remoteStudent会被jersey注入。
+	//注意请求的头部必须有 ContentType:application/json  否则tomcat会报错
 	@Produces(MediaType.APPLICATION_JSON)
 	public Student wsStudent3(Student remoteStudent) {
 		Student student= new Student();
