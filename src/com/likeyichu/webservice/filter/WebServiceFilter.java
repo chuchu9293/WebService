@@ -14,7 +14,7 @@ public class WebServiceFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String path = ((HttpServletRequest)request).getRequestURI();
        
-        if (path != null && (path.startsWith("/WebService/")||path.startsWith("/ws/"))) {
+        if (path != null && (path.startsWith("/webService/")||path.startsWith("/ws/"))) {
              HttpServletResponse res = (HttpServletResponse) response;
              res.addHeader("Access-Control-Allow-Origin", "*");
              res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
