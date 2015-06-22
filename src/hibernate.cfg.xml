@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?> 
+<!DOCTYPE hibernate-configuration PUBLIC 
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!--表明以下的配置是针对session-factory配置的，SessionFactory是Hibernate中的一个类，这个类主要负责保存HIbernate的配置信息，以及对Session的操作 -->
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver </property>
+		<property name="connection.url">jdbc:mysql://me.likeyichu.com:3306/AliyunDB</property>
+		<property name="Connection.useUnicode">true </property>
+		<property name="connection.characterEncoding">utf-8</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">admin</property>
+		
+		<!-- c3p0 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		
+		
+		<!--是否在后台显示Hibernate用到的SQL语句，开发时设置为true，便于查错，程序运行时可以在Eclipse的控制台显示Hibernate的执行Sql语句。项目部署后可以设置为false，提高运行效率 -->
+		<property name="hibernate.show_sql">true </property>
+		
+		<!--hibernate.dialect 只是Hibernate使用的数据库方言,就是要用Hibernate连接那种类型的数据库服务器。 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect </property>
+		<!--指定映射的类 -->
+		<mapping class="com.likeyichu.webservice.resource.me.Student" />
+		<mapping class="com.likeyichu.webservice.resource.me.dao.GaoKaoScoreBean" />
+		
+	</session-factory>
+</hibernate-configuration>    

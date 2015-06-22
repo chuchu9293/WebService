@@ -1,15 +1,37 @@
-package com.likeyichu.webservice.resource.me;
+package com.likeyichu.webservice.resource.me.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="gaoKaoScoreTable")
 public class GaoKaoScoreBean {
 	//报名序号
+	@Id
+	@Column(name="考生号")
 	String no;
+	@Column(name="姓名")
 	String name;
+	@Column(name="身份证")
 	String idCard;
+	@Column(name="考生类别")
 	String type;
-	String kaoShengHao;
-	int chinese,math,comprehensive,english;
-	//裸分，照顾分，裸分+照顾分
-	int total,zhaoGuFen,luoFenplusZhaoGuFen;
+	@Column(name="语文")
+	int chinese;
+	@Column(name="数学")
+	int math;
+	@Column(name="综合")
+	int comprehensive;
+	@Column(name="外语")
+	int english;
+	@Column(name="总分")
+	int total;
+	@Column(name="裸分加照顾分")
+	int luoFenplusZhaoGuFen;
+	@Transient
 	int ranking;
 	public String getNo() {
 		return no;
@@ -34,12 +56,6 @@ public class GaoKaoScoreBean {
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public String getKaoShengHao() {
-		return kaoShengHao;
-	}
-	public void setKaoShengHao(String kaoShengHao) {
-		this.kaoShengHao = kaoShengHao;
 	}
 	public int getChinese() {
 		return chinese;
@@ -70,12 +86,6 @@ public class GaoKaoScoreBean {
 	}
 	public void setTotal(int total) {
 		this.total = total;
-	}
-	public int getZhaoGuFen() {
-		return zhaoGuFen;
-	}
-	public void setZhaoGuFen(int zhaoGuFen) {
-		this.zhaoGuFen = zhaoGuFen;
 	}
 	public int getLuoFenplusZhaoGuFen() {
 		return luoFenplusZhaoGuFen;
