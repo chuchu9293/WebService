@@ -34,13 +34,15 @@ public class GaoKaoScoreDaoImpl {
 		SessionFactory sf=conf.buildSessionFactory(serviceRegistry);
 		Session sess=sf.openSession();
 		scienceList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通理科' order by t.total desc").list();
+		artsList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通文科' order by t.total desc").list();
 		//List<GaoKaoScoreBean> list=sess.createQuery("from GaoKaoScoreBean as t where t.name like  '杜%' order by t.total desc").list();
 		System.out.println(scienceList.size());
+		System.out.println(artsList.size());
 		sess.close();
 		sf.close();
 	}
 	
-	void getData(){
+	public void initializeData(){
 		getOriginData();
 		for(int i=0;i<scienceList.size();i++){
 			String old=scienceList.get(i).getIdCard();
@@ -48,15 +50,24 @@ public class GaoKaoScoreDaoImpl {
 			scienceList.get(i).setIdCard(newStr);
 			scienceList.get(i).setRanking(i+1);
 		}
+		for(int i=0;i<artsList.size();i++){
+			String old=artsList.get(i).getIdCard();
+			String newStr=old.substring(0, 10)+"*******"+old.substring(17,18);
+			artsList.get(i).setIdCard(newStr);
+			artsList.get(i).setRanking(i+1);
+		}
 	}
 	
 	public List<GaoKaoScoreBean> getScienceData(){
-		getData();
 		return scienceList;
-		
+	}
+
+	public List<GaoKaoScoreBean> getArtsData() {
+		return artsList;
 	}
 	
 	public static void main(String[] args) {
 		new GaoKaoScoreDaoImpl().getOriginData();
 	}
+
 }
