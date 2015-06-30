@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.likeyichu.webservice.me.bean.GaoKaoScoreBean;
 
 
-public class GaoKaoScoreDaoImpl {
+public class GaoKaoScoreDaoImpl extends DaoBase{
 	List<GaoKaoScoreBean> artsList;
 	List<GaoKaoScoreBean> scienceList;
 	
@@ -28,12 +28,6 @@ public class GaoKaoScoreDaoImpl {
 //		gaoKaoScoreBeannew.setLuoFenplusZhaoGuFen(610);
 //		scienceList.add(gaoKaoScoreBeannew);
 		
-		
-		//加载src/hibernate.cfg.xml作为配置
-		Configuration conf=new Configuration().configure();
-		//so long,annoying
-		ServiceRegistry serviceRegistry=new ServiceRegistryBuilder().applySettings(conf.getProperties()).buildServiceRegistry();
-		SessionFactory sf=conf.buildSessionFactory(serviceRegistry);
 		Session sess=sf.openSession();
 		scienceList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通理科' order by t.total desc").list();
 		artsList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通文科' order by t.total desc").list();
@@ -41,7 +35,6 @@ public class GaoKaoScoreDaoImpl {
 		System.out.println(scienceList.size());
 		System.out.println(artsList.size());
 		sess.close();
-		sf.close();
 	}
 	
 	public void initializeData(){

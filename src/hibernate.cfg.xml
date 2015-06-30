@@ -29,7 +29,7 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect </property>
 		<!--指定映射的类 -->
 		<mapping class="com.likeyichu.webservice.resource.me.Student" />
-		<mapping class="com.likeyichu.webservice.resource.me.dao.GaoKaoScoreBean" />
-		
+		<mapping class="com.likeyichu.webservice.me.bean.GaoKaoScoreBean" />
+		<mapping class="com.likeyichu.webservice.me.bean.IPBean" />
 	</session-factory>
 </hibernate-configuration>    
