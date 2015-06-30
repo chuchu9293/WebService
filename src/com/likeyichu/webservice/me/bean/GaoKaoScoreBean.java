@@ -1,4 +1,4 @@
-package com.likeyichu.webservice.resource.me.dao;
+package com.likeyichu.webservice.me.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

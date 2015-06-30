@@ -1,4 +1,4 @@
-package com.likeyichu.webservice.resource.me.dao;
+package com.likeyichu.webservice.me.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.Test;
+
+import com.likeyichu.webservice.me.bean.GaoKaoScoreBean;
 
 
 public class GaoKaoScoreDaoImpl {

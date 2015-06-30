@@ -10,8 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.likeyichu.webservice.resource.me.dao.GaoKaoScoreBean;
-import com.likeyichu.webservice.resource.me.dao.GaoKaoScoreDaoImpl;
+import com.likeyichu.webservice.me.bean.GaoKaoScoreBean;
+import com.likeyichu.webservice.me.dao.GaoKaoScoreDaoImpl;
 
 @Path("gaoKaoScore")
 public class GaoKaoScore {
