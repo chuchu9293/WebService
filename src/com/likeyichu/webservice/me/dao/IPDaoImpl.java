@@ -75,11 +75,13 @@ public class IPDaoImpl extends DaoBase{
 		int min=(int) x-50;
 		List<IPBean> list2=sess.createQuery("from IPBean as t where t.id > "+min).list();
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		List<IPBean> list3=new ArrayList<>();
+	
 		for (IPBean ipBean : list2) {
 			ipBean.setDateStr(format1.format(ipBean.getDate()));
-			list3.add(ipBean);
 		}
+		List<IPBean> list3=new ArrayList<>();
+		for(int i=list2.size()-1;i>=0;i--)
+			list3.add(list2.get(i));
 		//最新访问的排在前面
 		return list3;
 	}
