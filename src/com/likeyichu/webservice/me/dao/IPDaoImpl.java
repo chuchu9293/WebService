@@ -84,6 +84,7 @@ public class IPDaoImpl extends DaoBase{
 			//最新访问的排在前面
 			deque.addFirst(ipBean);
 		}
+		sess.close();
 		return deque;
 	}
 	
