@@ -1,6 +1,7 @@
 package com.likeyichu.webservice.resource.me;
 
 import java.util.List;
+import java.util.Queue;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,7 +25,7 @@ public class ipVisit {
 	@Path("get")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<IPBean> fun1(){
+	public Queue<IPBean> fun1(){
 		return IPDaoImpl.getLast50Elements();
 	}
 }

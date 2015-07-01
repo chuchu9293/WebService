@@ -2,8 +2,11 @@ package com.likeyichu.webservice.me.dao;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
+import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,23 +70,21 @@ public class IPDaoImpl extends DaoBase{
 	}
 
 	/**数据库读取最后50条*/
-	public static List<IPBean> getLast50Elements() {
+	@SuppressWarnings("unchecked")
+	public static Queue<IPBean> getLast50Elements() {
 		Session sess=sf.openSession();
-		@SuppressWarnings("unchecked")
-		List<Object> list=null;
+		//最大的序号
 		int x=(int) sess.createSQLQuery("select max(id) from ipVisitTable").uniqueResult();
-		int min=(int) x-50;
-		List<IPBean> list2=sess.createQuery("from IPBean as t where t.id > "+min).list();
+		int min=x-50;
+		List<IPBean> list=sess.createQuery("from IPBean as t where t.id > "+min).list();
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
-		for (IPBean ipBean : list2) {
+		Deque<IPBean> deque=new ArrayDeque<>();
+		for (IPBean ipBean : list) {
 			ipBean.setDateStr(format1.format(ipBean.getDate()));
+			//最新访问的排在前面
+			deque.addFirst(ipBean);
 		}
-		List<IPBean> list3=new ArrayList<>();
-		for(int i=list2.size()-1;i>=0;i--)
-			list3.add(list2.get(i));
-		//最新访问的排在前面
-		return list3;
+		return deque;
 	}
 	
 	/**数据库添加*/
