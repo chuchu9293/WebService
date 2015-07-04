@@ -10,7 +10,6 @@ import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javafx.animation.KeyValue.Type;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
