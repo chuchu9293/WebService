@@ -20,6 +20,10 @@
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 		<property name="hibernate.c3p0.validate">true</property>
 		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<!-- 每次从连接池中拿connection时，是否验证 -->
+		<property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+		<!-- connection的超时时间，mysqlServer默认为8小时，这里设为x表示x秒没用过的connection就丢弃，防止异常 -->
+		<property name="hibernate.c3p0.timeout">25000</property>
 		
 		
 		<!--是否在后台显示Hibernate用到的SQL语句，开发时设置为true，便于查错，程序运行时可以在Eclipse的控制台显示Hibernate的执行Sql语句。项目部署后可以设置为false，提高运行效率 -->
