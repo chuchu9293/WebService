@@ -9,11 +9,14 @@ import com.likeyichu.webservice.resource.Student;
 public class MyClient {
 
 	public static void main(String[] args) {
-		MyClient a;
 		RestTemplate client=new RestTemplate();
+		//get方法
 		String url="http://localhost:8080/WebService/student";
 		Student student=client.getForObject(url, Student.class);
 		System.out.println(student.getName());
+		
+		//post方法
+		
 	}
 
 }
