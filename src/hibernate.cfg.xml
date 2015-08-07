@@ -14,9 +14,11 @@
 		
 		
 		<!-- c3p0 -->
+		<!-- 必填，不然有关c3p0的配置都不嫩生效 -->
 		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>  
 		<property name="hibernate.c3p0.max_size">20</property>
 		<property name="hibernate.c3p0.min_size">10</property>
+		<!-- 对应DBServer端的wait_timeout，即一个connection连续n小时不活动就收回，mysql默认是8小时。此处的值小于服务端的值即可 -->
 		<property name="hibernate.c3p0.timeout">1000</property>
 		<property name="hibernate.c3p0.max_statements">100</property>
 		<property name="hibernate.c3p0.idle_test_period">50</property>
