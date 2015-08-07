@@ -29,6 +29,7 @@ public class GaoKaoScoreDaoImpl extends DaoBase{
 //		scienceList.add(gaoKaoScoreBeannew);
 		
 		Session sess=sf.openSession();
+		sf.getCurrentSession();
 		scienceList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通理科' order by t.total desc").list();
 		artsList=sess.createQuery("from GaoKaoScoreBean as t where t.type = '普通文科' order by t.total desc").list();
 		//List<GaoKaoScoreBean> list=sess.createQuery("from GaoKaoScoreBean as t where t.name like  '杜%' order by t.total desc").list();
